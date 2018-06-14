@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+		<title>Register</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
+	</head>
+	
+	<body>
+		<div class="container-fluid">
+			
+			<div class="row" id="filaregistro">
+				<div class="col-md-3">
+					
+				</div>
+				<div class="col-md-6">
+					<form class="form-horizontal" id="elform" action="/register/nuevousuario" method="POST">
+						<div class="form-group">
+							<div class="col-md-1 col-sm-1  col-lg-1 col-xl-1">
+							</div>
+							<div class="col-md-8 col-sm-8  col-lg-8 col-xs-8 col-xl-6" >
+								<h1>Registrate!</h1>
+								<h3>Unete a nuestra familia <span style="color:red;"><3</span></h3>
+							</div>
+							<div class="col-md-3 col-sm-3  col-lg-3 hidden-xs-down col-xl-6" >
+								<img src="{{url_for('static',filename='img/cat.png')}}" class="img-responsive huellaamor" />
+							</div>
+						</div>
+						<hr>
+						<div class="form-group">
+							<label class="col-md-2 col-sm-2  col-lg-3 col-xs-4 col-xl-1 control-label" >Nombre de Usuario</label><div class="col-md-9 col-sm-9  col-lg-8 col-xs-7 col-xl-10"><input required type="text" name="nombreusuario" class="form-control" /></div><div class="col-md-1 col-sm-1  col-lg-2 col-xs-1 col-xl-1"></div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 col-sm-2  col-lg-3 col-xs-4 col-xl-1 control-label" >Email</label><div class="col-md-9 col-sm-9  col-lg-8 col-xs-7 col-xl-10"><input required type="email"  name="email" class="form-control" /></div><div class="col-md-1 col-sm-1  col-lg-2 col-xs-1 col-xl-1"></div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 col-sm-2  col-lg-3 col-xs-4 col-xl-1 control-label" >Contraseña</label><div class="col-md-9 col-sm-9  col-lg-8 col-xs-7 col-xl-10"><input required type="password" name="contrasena" id="password" class="form-control" /></div><div class="col-md-1 col-sm-1  col-lg-2 col-xs-1 col-xl-1"></div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 col-sm-2  col-lg-3 col-xs-4 col-xl-1 control-label" >Confirmar Contraseña</label><div class="col-md-9 col-sm-9  col-lg-8 col-xs-7 col-xl-10"><input required type="password" id="confirm_password" class="form-control" /></div><div class="col-md-1 col-sm-1  col-lg-2 col-xs-1 col-xl-1"></div>
+							
+						</div>
+						<div class="form-group">
+							<div class="col-md-2 col-sm-2  col-lg-3 col-xs-4 col-xl-1"></div>
+							<div class="col-md-10 col-sm-10  col-lg-9 col-xs-8 col-xl-11"><small class="form-text text-muted" id="validar"></small></div>
+						</div>
+						<div class="form-group">	
+								<div class="col-md-7 col-sm-8  col-lg-8 col-xs-5 "></div>
+								<div class="col-md-4 col-sm-3  col-lg-3 col-xs-6 "><input type="submit" id="btn-confirmar" class="btn btn-primary btn-block" value="Registrarme"></div>
+								<div class="col-md-1 col-sm-1  col-lg-1 col-xs-1 "></div>
+						</div>		
+							
+						<div class="form-group">	
+								<div class="col-md-1 col-sm-1  col-lg-1 col-xs-1 col-xl-1"></div>
+								<div class="col-md-11 col-sm-11  col-lg-11 col-xs-11 col-xl-11"><small class="form-text text-muted">Ya tienes una cuenta? Ingresa <a href="/">Aquí</a></small></div>
+						</div>	
+					</form>
+				</div>
+				<div class="col-md-3">
+					
+				</div>
+			</div>
+		</div>
+		<script>
+			function validar(){
+			var password1=document.getElementById("password").value;
+			var password2=document.getElementById("confirm_password").value;
+			console.log(password1)
+			console.log(password2)
+				if(password1==password2 && password1 != "" && password2 != ""){
+					$("#validar").text("Contraseña confirmada");
+					document.getElementById("validar").style.color="#48C600";
+					document.getElementById("btn-confirmar").disabled=false;
+					console.log("entro por verdadero")
+				}
+				else{
+					$("#validar").text("Las contraseñas no concuerdan");
+					document.getElementById("validar").style.color="#E00000";
+					document.getElementById("btn-confirmar").disabled=true;
+					console.log("entro por false")
+				}
+			}
+			
+			$(document).ready(function(){
+				$("#confirm_password").keyup(validar)
+				$("#password").keyup(validar)
+				document.getElementById("btn-confirmar").disabled=true;
+				
+			});
+		</script>
+	</body>
+</html>
