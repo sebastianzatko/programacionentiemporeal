@@ -1,0 +1,93 @@
+CREATE TABLE public.users (
+  id_user   integer NOT NULL,
+  username  varchar(50) NOT NULL,
+  email     varchar(150),
+  pwd_hash  varchar(150),
+  country   varchar(150),
+  city      varchar(150),
+  /* Keys */
+  CONSTRAINT users_pkey
+    PRIMARY KEY (id_user)
+) WITH (
+    OIDS = FALSE
+  );
+
+ALTER TABLE public.users
+  OWNER TO "Usuariomascota";
+
+
+
+CREATE TABLE public.pets (
+  id_pet          integer NOT NULL,
+  nombre_mascota  varchar(150),
+  animal          varchar(100),
+  raza            varchar(100),
+  id_usuario      integer NOT NULL,
+  /* Keys */
+  CONSTRAINT pets_pkey
+    PRIMARY KEY (id_pet),
+  /* Foreign keys */
+  CONSTRAINT id_user
+    FOREIGN KEY (id_usuario)
+    REFERENCES public.users(id_user)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) WITH (
+    OIDS = FALSE
+  );
+
+ALTER TABLE public.pets
+  OWNER TO "Usuariomascota";
+
+
+
+
+--Table: public.pet_friends
+
+--DROP TABLE public.pet_friends;
+
+CREATE TABLE public.pet_friends (
+  id_pet1  integer,
+  id_pet2  integer,
+  /* Foreign keys */
+  CONSTRAINT pet1
+    FOREIGN KEY (id_pet1)
+    REFERENCES public.pets(id_pet), 
+  CONSTRAINT pet2
+    FOREIGN KEY (id_pet2)
+    REFERENCES public.pets(id_pet)
+) WITH (
+    OIDS = FALSE
+  );
+
+ALTER TABLE public.pet_friends
+  OWNER TO "Usuariomascota";
+
+
+
+--Table: public.publicaciones
+
+--DROP TABLE public.publicaciones;
+
+CREATE TABLE public.publicaciones (
+  id_publicacion  integer NOT NULL,
+  content         text NOT NULL,
+  id_pet          integer NOT NULL,
+  "date"          timestamp with time zone NOT NULL,
+  lat             double precision,
+  long            double precision,
+  /* Keys */
+  CONSTRAINT publicaciones_pkey
+    PRIMARY KEY (id_publicacion),
+  /* Foreign keys */
+  CONSTRAINT id_pet
+    FOREIGN KEY (id_pet)
+    REFERENCES public.pets(id_pet)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) WITH (
+    OIDS = FALSE
+  );
+
+ALTER TABLE public.publicaciones
+  OWNER TO "Usuariomascota";
