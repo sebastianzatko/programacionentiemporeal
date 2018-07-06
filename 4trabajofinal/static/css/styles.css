@@ -1,0 +1,136 @@
+.mypetprofile{
+	border-style:solid;
+	border-color:white;
+	border-width:1px;
+	background-color:white;
+	border-radius:10px;
+	margin-top:20px;
+	padding-top:5px;
+}
+#elform{
+	border-style:solid;
+	border-color:white;
+	border-width:1px;
+	background-color:white;
+	border-radius:10px;
+	
+	
+}
+
+.thumnaillittle{
+	width:100px;
+	height:100px;
+}
+
+.friendsuggest{
+	border-style:solid;
+	border-color:white;
+	border-width:1px;
+	background-color:white;
+	border-radius:10px;
+	margin-top:20px;
+	padding:5px;
+}
+
+.formmediomalo{
+	padding:10px;
+	margin-top:20%;
+}
+
+#busqueda{
+	margin-top:20px;
+}
+#maincontent{
+	border-style:solid;
+	border-color:white;
+	border-width:1px;
+	background-color:white;
+	border-radius:10px;
+	margin-top:20px;
+	padding:5px;
+}
+#navmenu{
+	border-style:solid;
+	border-color:white;
+	border-width:1px;
+	background-color:white;
+	border-radius:10px;
+	margin-top:20px;
+}
+
+body{
+	background-color:#9DACFF;
+	background-image:url(../img/fondo.png);
+	
+	background-repeat: repeat;
+}
+.logo{
+	
+}
+
+.titulo{
+	font-family: 'Berkshire Swash', cursive;
+	color:#FF4116;
+	font-size:50px;
+	background-color:rgba(255, 255, 255, 0.5);
+	border-radius:10px;
+}
+
+.huellaamor{
+	width:150px;
+	height:150px;
+	
+}
+.thumbnailmascota{
+	width:150px;
+	height:150px;
+	
+}
+#filaregistro{
+	margin-top:3%;
+}
+#separacionrwos{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.centerpublication{
+	border-style:solid;
+	border-color:white;
+	border-width:1px;
+	background-color:white;
+	border-radius:10px;
+	margin:0 auto;
+	width:60%;
+	margin-top:30px;
+	
+}
+
+.abajo{
+	margin-top:20px;
+}
+@media (max-width: 767.98px) { 
+	.hidden-sm-down{
+		display:none;
+	}
+ }
+
+@media (max-width: 544px) { 
+	.hidden-sm-down{
+		display:none;
+	}
+	.hidden-xs-down{
+		display:none;
+	}
+	.centerpublication{
+	border-style:solid;
+	border-color:white;
+	border-width:1px;
+	background-color:white;
+	border-radius:10px;
+	margin:0 auto;
+	width:100%;
+	margin-top:30px;
+	
+}
+ }

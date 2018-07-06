@@ -1,0 +1,25 @@
+{% extends "petselect.html" %}
+
+{% block content %}
+  {% for pet in pets %}
+
+	<div class="row" id="separacionrwos">
+		<div class="col-md-1 col-sm-1  col-lg-1 col-xs-1 col-xl-1">
+		</div>
+		<div class="col-md-10 col-sm-10 col-lg-10 col-xs-10 col-xl-10"> 
+			<div class="form-inline">
+					<div class="col-md-6 col-sm-6 col-lg-4 col-xs-6 col-xl-6">
+						<img src="{{ url_for('static', filename='img/defult-pet.png') }}" class="img-circle thumbnailmascota"/>
+					</div>
+					<div class="col-md-6 col-sm-6 col-lg-8 col-xs-6 col-xl-6">
+						<h2>pet.petname<small>pet.animal</small></h2>
+						<a>Ingresar</a>
+					</div>
+				
+			</div>
+		</div>
+		<div class="col-md-1 col-sm-1  col-lg-1 col-xs-1 col-xl-1">
+		</div>
+	</div>
+  {% endfor%}
+{% endblock %}
